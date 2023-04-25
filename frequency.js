@@ -20,11 +20,11 @@ function same(arr1, arr2) {
   let obj2 = {};
   for (let i = 0; i < arr1.length; i++) {
     let char = arr1[i];
-    obj1[char] = obj1[char] ? ++obj1[char] : 1;
+    obj1[char] = ++obj1[char] || (obj1[char] = 1);
   }
   for (let i = 0; i < arr2.length; i++) {
     let char = arr2[i];
-    obj2[char] = obj2[char] ? ++obj2[char] : 1;
+    obj2[char] = ++obj2[char] || (obj2[char] = 1);
   }
   for (let key in obj1) {
     console.log(obj2[key ** 2]);
@@ -32,12 +32,12 @@ function same(arr1, arr2) {
       return false;
     }
     if (obj2[key ** 2] !== obj1[key]) {
-        // obj2[key ** 2] accesses the property in obj2 whose key is the squared value of key.
+      // obj2[key ** 2] accesses the property in obj2 whose key is the squared value of key.
       return false;
     }
   }
   return true;
 }
 
-let result = same([2, 3, 4, 3,9], [4, 9, 9,8, 16]);
-console.log(result)
+let result = same([2, 3, 4, 3, 9], [4, 9, 9, 8, 16]);
+console.log(result);
