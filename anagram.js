@@ -7,6 +7,7 @@ function isAnagram(string1, string2) {
   let obj2 = {};
 
   for (let char of string1) {
+    console.log(char);
     //The logical OR operator in this case is used to provide a default value of 1 when the key doesn't exist in the obj1 object.
     // It evaluates to the left operand if the left operand is truthy, otherwise it evaluates to the right operand.
     obj1[char] = ++obj1[char] || (obj1[char] = 1);
@@ -15,7 +16,8 @@ function isAnagram(string1, string2) {
     obj2[char] = ++obj2[char] || (obj2[char] = 1);
   }
   for (let key in obj1) {
-    console.log(obj1[key]);
+    console.log(key);
+    console.log(key);
     if (!(key in obj2)) {
       return false;
     }
@@ -25,4 +27,4 @@ function isAnagram(string1, string2) {
   }
   return true;
 }
-console.log(isAnagram("aaalala", "lalaaaa"));
+console.log(isAnagram("aaalalay", "lalaaaay"));
